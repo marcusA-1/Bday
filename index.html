@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Sophie 🎉</title>
+<style>
+  :root {
+    --pink: #ff6f91;
+    --purple: #a259d9;
+    --gold: #ffd166;
+    --cream: #fff8f0;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(160deg, #2b1055, #7597de);
+    overflow-x: hidden;
+    color: #2b1055;
+  }
+
+  .balloon {
+    position: fixed;
+    bottom: -150px;
+    width: 50px;
+    height: 65px;
+    border-radius: 50% 50% 50% 50% / 55% 55% 45% 45%;
+    opacity: 0.85;
+    animation: rise linear infinite;
+    z-index: 0;
+  }
+  .balloon::after {
+    content: '';
+    position: absolute;
+    bottom: -18px;
+    left: 50%;
+    width: 1px;
+    height: 18px;
+    background: rgba(255,255,255,0.5);
+  }
+  @keyframes rise {
+    0% { transform: translateY(0) translateX(0); opacity: 0.9; }
+    100% { transform: translateY(-110vh) translateX(20px); opacity: 0; }
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 48px 20px 80px;
+    text-align: center;
+  }
+
+  .card {
+    background: var(--cream);
+    border-radius: 24px;
+    padding: 40px 28px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, var(--gold), transparent 70%);
+    opacity: 0.5;
+  }
+
+  h1 {
+    font-size: 2.1rem;
+    margin: 0 0 6px;
+    color: var(--purple);
+    line-height: 1.2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  h1 span {
+    display: block;
+    font-size: 2.8rem;
+    color: var(--pink);
+    font-weight: 700;
+    margin-top: 6px;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 28px;
+  }
+
+  .message {
+    text-align: left;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 28px;
+  }
+  .message p { margin: 0 0 14px; }
+  .message strong { color: var(--purple); }
+
+  .postit {
+    background: #fff3a0;
+    transform: rotate(-2deg);
+    padding: 22px 20px;
+    border-radius: 4px;
+    box-shadow: 4px 6px 14px rgba(0,0,0,0.25);
+    font-family: 'Comic Sans MS', 'Segoe Print', cursive, sans-serif;
+    color: #4a3f00;
+    margin: 0 auto 28px;
+    max-width: 420px;
+    font-size: 1rem;
+    line-height: 1.5;
+    position: relative;
+  }
+  .postit .stamp {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 0.85rem;
+    border: 2px dashed #b8860b;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transform: rotate(2deg);
+  }
+  .postit .sig {
+    margin-top: 14px;
+    font-size: 0.9rem;
+    text-align: right;
+    font-style: italic;
+  }
+
+  .btn-row {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  button, .btn {
+    background: linear-gradient(135deg, var(--pink), var(--purple));
+    color: white;
+    border: none;
+    padding: 13px 26px;
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(162, 89, 217, 0.4);
+    transition: transform 0.15s ease;
+  }
+  button:hover, .btn:hover { transform: translateY(-2px) scale(1.03); }
+
+  .hidden { display: none; }
+
+  .footer-note {
+    margin-top: 24px;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.75);
+  }
+
+  .confetti-piece {
+    position: fixed;
+    top: -10px;
+    width: 8px;
+    height: 14px;
+    z-index: 5;
+    pointer-events: none;
+  }
+  @keyframes fall {
+    to { transform: translateY(110vh) rotate(540deg); opacity: 0.9; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="card">
+    <h1><span class="line1">🎂 Happy Birthday</span><span>Sophie!</span></h1>
+    <div class="subtitle">(yes, it's a couple days late — but I'm blaming the postal service, not myself)</div>
+
+    <div id="intro">
+      <div class="message">
+        <p>Also, as im in IT, a shop bought card just couldn't be allowed. You get a bespoke, over-engineered, mildly cursed website instead. You're welcome.</p>
+        <p>We've known each other since we were like 16 and you basically helped me decide to come to Emplas — so you've got yourself to blame for me annoying you. Sorry but not sorry about that 😂</p>
+        <p>Anyway. It's your birthday. Click the button before I get sentimental in front of the whole internet.<br><span style="font-size: 0.75em; color: #777;">Ps this is hosted on my repo so take a screenshot of the next page, you'll see why, not that I go back on my word</span></p>
+      </div>
+      <div class="btn-row">
+        <button onclick="reveal()">Open your card 🎁</button>
+      </div>
+    </div>
+
+    <div id="main" class="hidden">
+      <div class="message">
+        <p>Happy birthday, Sophie 🎉</p>
+        <p>You're an absolute real one! Now don't be mad - I know you're being healthy buttt common its your birthday so i got you this (look in the box) im going to look like an idiot if that's not the one you told me try when you gave me a lift back that time 🤦‍♂️. Peak male wrapping skills of course.</p>
+        <p>Hope you had a sick day stilll and if you lost the original note - don't worry <strong>the contract below is still legally binding</strong>.. Probably 😉</p>
+      </div>
+
+      <div class="postit">
+        <div>📝 OFFICIAL & TOTALLY UNPROFESSIONAL CONTRACT</div>
+        <div style="margin-top:8px;">I, Marcus, promise that when I become a multi-millionaire, I will not forget Sophie. She shall receive <strong>1% of everything I make, for life</strong>, as previously verbally agreed and now immortalised on a virtual post-it note for legal weight.</div>
+        <div class="stamp">✔ VERIFIED BY POST-IT</div>
+        <div class="sig">— Marcus, probably at my desk when I wrote this</div>
+      </div>
+
+      <div class="btn-row">
+        <button onclick="party()">🎈 One more surprise</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-note">made with way too much effort for a Tuesday</div>
+</div>
+
+<script>
+  function reveal() {
+    document.getElementById('intro').classList.add('hidden');
+    document.getElementById('main').classList.remove('hidden');
+    burstConfetti(40);
+  }
+
+  function party() {
+    burstConfetti(80);
+  }
+
+  function burstConfetti(count) {
+    const colors = ['#ff6f91', '#a259d9', '#ffd166', '#6bd1a2', '#5aa9e6'];
+    for (let i = 0; i < count; i++) {
+      const el = document.createElement('div');
+      el.className = 'confetti-piece';
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.background = colors[Math.floor(Math.random() * colors.length)];
+      el.style.animation = 'fall ' + (2.5 + Math.random() * 2) + 's linear forwards';
+      el.style.animationDelay = (Math.random() * 0.5) + 's';
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 5500);
+    }
+  }
+
+  // floating balloons in background
+  (function balloons() {
+    const colors = ['#ff6f91', '#a259d9', '#ffd166', '#6bd1a2', '#5aa9e6'];
+    for (let i = 0; i < 8; i++) {
+      const b = document.createElement('div');
+      b.className = 'balloon';
+      b.style.left = (Math.random() * 100) + 'vw';
+      b.style.background = colors[i % colors.length];
+      b.style.animationDuration = (10 + Math.random() * 8) + 's';
+      b.style.animationDelay = (Math.random() * 10) + 's';
+      document.body.appendChild(b);
+    }
+  })();
+
+  window.addEventListener('load', () => burstConfetti(20));
+</script>
+
+</body>
+</html>
